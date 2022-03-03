@@ -1,1 +1,2 @@
-my first commit
+#!/bin/bash
+su betty
