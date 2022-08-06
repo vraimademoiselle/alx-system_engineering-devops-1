@@ -1,3 +1,3 @@
-<img src="https://badges.strrl.dev/visits/nevillionaire/alx-system_engineering-devops?style=flat-square&color=blue&logo=github&a=0">
+![visitor badge](https://visitor-badge.glitch.me/badge?page_id=alx-system_engineering-devops.visitor-badge&left_color=grey&right_color=red)
 
 alx-system_engineering-devops
