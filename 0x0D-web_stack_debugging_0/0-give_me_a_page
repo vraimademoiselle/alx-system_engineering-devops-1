@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Starts apache server
-
-/etc/init.d/apache2 start
+# Run Apache on the Hello Holberton/265-0 Docker container.
+service apache2 start
