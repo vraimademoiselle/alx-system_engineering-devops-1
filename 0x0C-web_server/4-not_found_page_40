@@ -1,28 +1,25 @@
 #!/usr/bin/env bash
-# Configure your Nginx server to have a custom 404 page
+# Install nginx with custom 404 page that contains the string
+# Ceci n'est pas une page.
 
-apt-get update
-apt-get install -y nginx
+# Instal nginx
+sudo apt update
+sudo apt install -y nginx
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+# Add custom 404 error page to nfinx confg
+sudo sed -i "53s/.*/\t\terror_page 404 \/custom_404.html;\n\t\tlocation \/custom_404.html {\n\t\t\t\troot \/var\/www\/html;\n\t\t\t\tinternal;\n\t\t}/" /etc/nginx/sites-enabled/default
 
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-    error_page 404 /404.html;
-    location /404 {
-      root /etc/nginx/html;
-      internal;
-    }
-}" > /etc/nginx/sites-available/default
+# Create default nginx folder for pages
+sudo mkdir -p /var/www/html
 
-service nginx restart
+# Create custom_404.html file
+sudo touch var/www/html/custom_404.html
+
+# Change file ownership to current user to allow editing
+sudo chown -R "$USER":"$USER" /var/www/html/custom_404.html
+
+# Overwite file content
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+# Restart nginx server
+sudo service nginx restart
