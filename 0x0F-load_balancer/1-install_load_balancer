@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 # Installs HAProxy version 2.6 with the following configurations:
 #+    Enables management via the init script.
@@ -37,7 +36,7 @@ listen hbnb
     option httpclose
     option forwardfor
     server 11531-web-01 18.206.194.154 check
-    server 11531-web-02 3.236.23.32 check
+    server 11531-web-02 3.236.115.236 check
 " >> /etc/haproxy/haproxy.cfg
 
 service haproxy start
