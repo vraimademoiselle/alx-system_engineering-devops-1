@@ -1,9 +1,2 @@
-# Strace is your friend (fix wordpress) 
-exec { 'fix-wordpress':
-  environment => ['DIR=/var/www/html/wp-settings.php',
-                  'OLD=phpp',
-                  'NEW=php'],
-  command     => 'sudo sed -i "s/$OLD/$NEW/" $DIR',
-  path        => ['/usr/bin', '/bin'],
-  returns     => [0, 1]
-}
+# fix wordpress bug - a typo in the file
+exec { '/usr/bin/env sed -i "s/phpp/php/g" /var/www/html/wp-settings.php': }
