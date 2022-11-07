@@ -34,7 +34,9 @@ Checked nginx configuration files;
 `cat /etc/nginx/sites-available/default`
 `cat /etc/nginx/sites-enabled/default`
 
-The problem was with nginx configuration in the file `/etc/nginx/sites-enabled/default` . Nginx was listening on `8080` instead of `80`.
+The problem was with nginx configuration in the file 
+`/etc/nginx/sites-enabled/default` . 
+Nginx was listening on `8080` instead of `80`.
 
 08:51: nginx was configured to listen on port 80 and restarted successfully.
 # Root Cause.
